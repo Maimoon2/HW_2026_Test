@@ -69,7 +69,7 @@ public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager Instance;
     [SerializeField] private Text scoreText;
-    private int score = -1;
+    private int score = 0;
     private GameObject currentPulpit;
 
     public int Score => score;
