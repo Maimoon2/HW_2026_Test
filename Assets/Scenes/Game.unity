@@ -137,8 +137,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DoofusController
   fallbackSpeed: 3
-  rotateToFaceMovement: 1
-  rotationSpeed: 10
+--- !u!4 &272611605 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5537026628841779719, guid: baaa032e90025b74eb100ded9e4af5c9, type: 3}
+  m_PrefabInstance: {fileID: 6818157063448249649}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -151,6 +154,7 @@ GameObject:
   - component: {fileID: 330585545}
   - component: {fileID: 330585544}
   - component: {fileID: 330585547}
+  - component: {fileID: 330585548}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -276,6 +280,21 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!114 &330585548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330585543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5af01fb5c716f9149bf0c419121e8caf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DoofusCamera
+  target: {fileID: 272611605}
+  offset: {x: 0, y: 10, z: -10}
+  followSpeed: 5
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -497,6 +516,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1920548143
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1920548144}
+  - component: {fileID: 1920548145}
+  m_Layer: 0
+  m_Name: PulpitManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1920548144
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1920548143}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -9.50359, y: 1.1805, z: -1.20511}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1920548145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1920548143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d957842bb3ece64ba43272aabadb961, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PulpitManager
+  pulpitPrefab: {fileID: 8614183684176879862, guid: eca534929a679f14281f386e81b53868, type: 3}
 --- !u!1001 &3771610744538221321
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -628,3 +692,4 @@ SceneRoots:
   - {fileID: 3771610744538221321}
   - {fileID: 6818157063448249649}
   - {fileID: 1524467976}
+  - {fileID: 1920548144}
