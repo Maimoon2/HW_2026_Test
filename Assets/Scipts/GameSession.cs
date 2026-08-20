@@ -93,6 +93,7 @@ public class GameSession : MonoBehaviour
     }
 }*/
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameSession : MonoBehaviour
 {
@@ -104,6 +105,7 @@ public class GameSession : MonoBehaviour
     [SerializeField] private GameObject startUI;
     [SerializeField] private GameObject scoreUI;
     [SerializeField] private GameObject gameoverUI;
+    [SerializeField] private Text finalScoreText;
 
     private void Awake()
     {
@@ -170,6 +172,12 @@ public class GameSession : MonoBehaviour
 
         if (gameoverUI != null)
             gameoverUI.SetActive(true);
+
+        if (finalScoreText != null && ScoreManager.Instance != null)
+        {
+            finalScoreText.text = ScoreManager.Instance.Score.ToString();
+            Debug.Log("FinalScore:");
+        }
 
         PulpitManager pulpitManager =FindFirstObjectByType<PulpitManager>();
 
