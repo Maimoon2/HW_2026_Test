@@ -112,4 +112,8 @@ public class PulpitManager : MonoBehaviour
         // Destroy the Pulpit after the SAME amount of time
         Destroy(pulpit, destroyTime);
     }
+    public GameObject GetCurrentPulpit()
+    {
+        return currentPulpit;
+    }
 }

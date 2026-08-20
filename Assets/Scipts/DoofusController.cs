@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 public class DoofusController : MonoBehaviour
 {
     [SerializeField] private float fallbackSpeed = 3f;
+    private GameObject lastPulpit;
     /*[SerializeField] private bool rotateToFaceMovement = true;
     [SerializeField] private float rotationSpeed = 100f;*/
 
@@ -49,5 +50,20 @@ public class DoofusController : MonoBehaviour
             Quaternion targetRotation = Quaternion.LookRotation(movement, Vector3.up);
             rb.rotation = Quaternion.Slerp(rb.rotation, targetRotation, rotationSpeed * Time.fixedDeltaTime);
         }*/
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Pulpit"))
+        {
+            if (collision.gameObject != lastPulpit)
+            {
+                lastPulpit = collision.gameObject;
+
+                if (ScoreManager.Instance != null)
+                {
+                    ScoreManager.Instance.ReachedPulpit(collision.gameObject);
+                }
+            }
+        }
     }
 }
