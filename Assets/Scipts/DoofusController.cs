@@ -24,32 +24,29 @@ public class DoofusController : MonoBehaviour
         {
             input.x = Keyboard.current.aKey.isPressed ? -1f : 0f;
             input.x += Keyboard.current.dKey.isPressed ? 1f : 0f;
+
             input.y = Keyboard.current.sKey.isPressed ? -1f : 0f;
             input.y += Keyboard.current.wKey.isPressed ? 1f : 0f;
 
-            // Arrow keys
             input.x += Keyboard.current.leftArrowKey.isPressed ? -1f : 0f;
             input.x += Keyboard.current.rightArrowKey.isPressed ? 1f : 0f;
+
             input.y += Keyboard.current.downArrowKey.isPressed ? -1f : 0f;
             input.y += Keyboard.current.upArrowKey.isPressed ? 1f : 0f;
         }
 
         input = Vector2.ClampMagnitude(input, 1f);
+
         Vector3 movement = new Vector3(input.x, 0f, input.y);
 
-        float speed = (GameConfig.Instance != null) ? GameConfig.Instance.Speed : fallbackSpeed;
+        float speed = GameConfig.Instance != null
+            ? GameConfig.Instance.Speed
+            : fallbackSpeed;
 
-        rb.linearVelocity = new Vector3(
-            movement.x * speed,
-            rb.linearVelocity.y,
-            movement.z * speed
-        );
+        Vector3 horizontalMovement =
+            movement * speed * Time.fixedDeltaTime;
 
-        /*if (rotateToFaceMovement && movement.sqrMagnitude > 0.01f)
-        {
-            Quaternion targetRotation = Quaternion.LookRotation(movement, Vector3.up);
-            rb.rotation = Quaternion.Slerp(rb.rotation, targetRotation, rotationSpeed * Time.fixedDeltaTime);
-        }*/
+        rb.MovePosition(rb.position + horizontalMovement);
     }
     private void OnCollisionEnter(Collision collision)
     {
