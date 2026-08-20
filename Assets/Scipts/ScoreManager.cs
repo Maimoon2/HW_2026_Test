@@ -7,7 +7,7 @@ public class ScoreManager : MonoBehaviour
 
     [SerializeField] private TMP_Text scoreText;
 
-    private int score = -1;
+    private int score = 0;
 
     private GameObject currentPulpit;
 

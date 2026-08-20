@@ -6,6 +6,7 @@ public class DoofusController : MonoBehaviour
 {
     [SerializeField] private float fallbackSpeed = 3f;
     private GameObject lastPulpit;
+    [SerializeField] private float fallThreshold = -5f;
     /*[SerializeField] private bool rotateToFaceMovement = true;
     [SerializeField] private float rotationSpeed = 100f;*/
 
@@ -14,6 +15,23 @@ public class DoofusController : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+    }
+
+    private void Update()
+    {
+        if (GameSession.Instance == null)
+            return;
+
+        if (!GameSession.Instance.IsGameStarted)
+            return;
+
+        if (GameSession.Instance.IsGameOver)
+            return;
+
+        if (transform.position.y < fallThreshold)
+        {
+            GameSession.Instance.GameOver();
+        }
     }
 
     private void FixedUpdate()
