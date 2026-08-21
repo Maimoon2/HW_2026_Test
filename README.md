@@ -10,6 +10,10 @@ If Doofus walks off a Pulpit or the Pulpit disappears while he is standing on it
 ## 🎥 Gameplay Demo
 https://drive.google.com/file/d/1jJLVlPQA4s1_5yvgtK6ROKR7g6ext11H/view?usp=sharing
 
+| Start Screen | In-Game | Game Over |
+|---|---|---|
+| ![Start](media/StartMenu.png) | ![Score](media/ScoreUI.png) | ![Game Over](media/GameOverMenu.png) |
+
 ## 🎯 Features
 - WASD and Arrow Key movement
 - Random adjacent Pulpit generation
