@@ -12,7 +12,7 @@ https://drive.google.com/file/d/1jJLVlPQA4s1_5yvgtK6ROKR7g6ext11H/view?usp=shari
 
 | Start Screen | In-Game | Game Over |
 |---|---|---|
-| ![Start](media/StartMenu.png) | ![Score](media/ScoreUI.png) | ![Game Over](media/GameOverMenu.png) |
+| ![Start](Media/StartMenu.png) | ![Score](Media/ScoreUI.png) | ![Game Over](Media/GameOverMenu.png) |
 
 ## 🎯 Features
 - WASD and Arrow Key movement
