@@ -57,14 +57,14 @@ public class DoofusController : MonoBehaviour
 
         Vector3 movement = new Vector3(input.x, 0f, input.y);
 
-        float speed = GameConfig.Instance != null
-            ? GameConfig.Instance.Speed
-            : fallbackSpeed;
+        float speed = GameConfig.Instance != null ? GameConfig.Instance.Speed : fallbackSpeed;
 
-        Vector3 horizontalMovement =
-            movement * speed * Time.fixedDeltaTime;
+        //Vector3 horizontalMovement = movement * speed * Time.fixedDeltaTime;
 
-        rb.MovePosition(rb.position + horizontalMovement);
+        Vector3 targetVelocity = new Vector3(input.x, 0f, input.y) * speed;
+
+        //rb.MovePosition(rb.position + horizontalMovement);
+        rb.linearVelocity = new Vector3(targetVelocity.x, rb.linearVelocity.y, targetVelocity.z);
     }
     private void OnCollisionEnter(Collision collision)
     {
